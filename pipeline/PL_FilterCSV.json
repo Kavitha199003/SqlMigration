@@ -1,0 +1,67 @@
+{
+	"name": "PL_FilterCSV",
+	"properties": {
+		"activities": [
+			{
+				"name": "Filter",
+				"type": "Filter",
+				"dependsOn": [
+					{
+						"activity": "Lookup",
+						"dependencyConditions": [
+							"Succeeded"
+						]
+					}
+				],
+				"userProperties": [],
+				"typeProperties": {
+					"items": {
+						"value": "@activity('Lookup').output.value",
+						"type": "Expression"
+					},
+					"condition": {
+						"value": "@equals(item()['SIC_Code'], '1110')",
+						"type": "Expression"
+					}
+				}
+			},
+			{
+				"name": "Lookup",
+				"type": "Lookup",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"source": {
+						"type": "DelimitedTextSource",
+						"storeSettings": {
+							"type": "AzureBlobFSReadSettings",
+							"recursive": true,
+							"enablePartitionDiscovery": false
+						},
+						"formatSettings": {
+							"type": "DelimitedTextReadSettings"
+						}
+					},
+					"dataset": {
+						"referenceName": "DS_CSV",
+						"type": "DatasetReference"
+					},
+					"firstRowOnly": false
+				}
+			}
+		],
+		"folder": {
+			"name": "ControlFlowActivity"
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-11-04T15:20:24Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

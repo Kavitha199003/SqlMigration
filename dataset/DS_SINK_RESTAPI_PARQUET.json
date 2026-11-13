@@ -1,0 +1,21 @@
+{
+	"name": "DS_SINK_RESTAPI_PARQUET",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "LS_SINK_PARQUET",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "Parquet",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "new_restapi.json",
+				"fileSystem": "apioutput"
+			},
+			"compressionCodec": "snappy"
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

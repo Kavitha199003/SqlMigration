@@ -1,0 +1,39 @@
+{
+	"name": "PL_DeleteActivity",
+	"properties": {
+		"activities": [
+			{
+				"name": "ADLS DELETE",
+				"type": "Delete",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "0.12:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataset": {
+						"referenceName": "DS_SOURCE_CSV_PARQUET",
+						"type": "DatasetReference"
+					},
+					"enableLogging": false,
+					"storeSettings": {
+						"type": "AzureBlobFSReadSettings",
+						"recursive": true,
+						"wildcardFileName": "customers_*.csv",
+						"enablePartitionDiscovery": false
+					}
+				}
+			}
+		],
+		"folder": {
+			"name": "Activity"
+		},
+		"annotations": [],
+		"lastPublishTime": "2026-11-03T11:59:47Z"
+	},
+	"type": "Microsoft.DataFactory/factories/pipelines"
+}

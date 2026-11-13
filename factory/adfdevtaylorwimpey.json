@@ -1,0 +1,15 @@
+{
+	"name": "adfdevtaylorwimpey",
+	"properties": {
+		"trustModeClaimForMi": {
+			"value": "Disabled",
+			"editable": true
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "ecbf30a8-6424-4f10-9f54-6eac2b716413",
+		"tenantId": "189ef8df-7d17-4467-87ee-40ac4833b62d"
+	}
+}
